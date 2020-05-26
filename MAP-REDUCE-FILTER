@@ -1,0 +1,27 @@
+const CardData = [
+  {suit: 'hearts', letter: 'A', pointValue: 1},
+  {suit: 'hearts', letter: 'Z', pointValue: 10},
+  {suit: 'clubs', letter: 'K', pointValue: 4},
+  {suit: 'clubs', letter: 'B', pointValue: 3},
+  {suit: 'spades', letter: 'M', pointValue: 4},
+  {suit: 'diamonds', letter: 'E', pointValue: 1},
+  {suit: 'diamonds', letter: 'S', pointValue: 1}
+]
+
+// Sort and Map example
+const sortedCards = CardData.sort((a,b) => a.letter > b.letter ? 1 : -1);
+const output = sortedCards.map(card => `${card.suit} ${card.letter} ${card.pointValue}`);
+console.log(output);
+
+//Get total points in CardData using REDUCE
+const score = CardData.reduce((total, card) => total + card.pointValue, 0);
+console.log('Score : ' + score);
+
+// Get cards with point value greater than zero using FILTER
+const items = CardData.filter(card => (card.pointValue) > 0);
+console.log('Items > 0 : ')
+console.log(items);
+
+items.forEach((card) => {
+  console.log(card.letter +'\t' + card.suit +'\t' +  card.pointValue); 
+})
